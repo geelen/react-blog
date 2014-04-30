@@ -7,7 +7,6 @@ UserSwitcher = require('../user_switcher/user_switcher')
 
 module.exports = React.createClass
   onUserChange: (newUser) ->
-    console.log(newUser)
     this.setState user: newUser
 
   componentWillMount: ->

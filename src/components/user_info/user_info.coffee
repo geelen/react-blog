@@ -14,7 +14,6 @@ module.exports = React.createClass
   fetchData: (username) ->
     Bacon.fromNodeCallback(httpplease.get, 'https://api.github.com/users/' + username)
     .onValue (v) =>
-      console.log("OK GOT DATA")
       this.setState name: v.body.name, avatar: v.body.avatar_url, username: v.body.login
 
   componentWillMount: -> this.fetchData(this.props.username)
