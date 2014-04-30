@@ -26,7 +26,7 @@ gulp.task('clean', function () {
 gulp.task('build', ['js', 'html']);
 
 gulp.task('default', ['build', 'connect'], function () {
-  gulp.watch(['src/**/*.js'], ['js']);
+  gulp.watch(['src/**/*.coffee'], ['js']);
   gulp.watch(['src/**/*.html'], ['html']);
 
   gulp.watch(['dist/**.*'], function (event) {
