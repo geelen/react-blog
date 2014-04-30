@@ -2,8 +2,7 @@
 
 React = require('react')
 Bacon = require('baconjs')
-httpplease = require('httpplease')
-  .use require('httpplease/lib/plugins/jsonparser')
+httpplease = require('httpplease').use(require('httpplease/lib/plugins/jsonparser'))
 R = React.DOM
 
 UserInfo = React.createClass
