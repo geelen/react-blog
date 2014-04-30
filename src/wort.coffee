@@ -5,7 +5,17 @@ Bacon = require('baconjs')
 httpplease = require('httpplease').use(require('httpplease/lib/plugins/jsonparser'))
 
 class ClientWort
-  http: httpplease
+  constructor: ->
+    @cache = window.WortCache || {}
+    @cache.http ||= {}
+    @cache.http.get ||= {}
+
+    @http =
+      get: (url, cb) =>
+        if @cache.http.get[url]
+          cb(null, @cache.http.get[url])
+        else
+          httpplease.get url, cb
 
 class ServerWort
   cache:
@@ -26,7 +36,9 @@ class ServerWort
   attemptRendering: ->
     @externalRequestsPending = false
     body = React.renderComponentToString(@componentConstructor())
-    @complete(null, body) if !@externalRequestsPending
+    console.log("ATTEMPT:")
+    console.log(body)
+    @complete(null, body, @cache) if !@externalRequestsPending
 
   renderReactComponentToString: (cb) ->
     @complete = cb
