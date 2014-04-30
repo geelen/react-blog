@@ -10,9 +10,8 @@ module.exports = React.createClass
     username: 'Loading...'
 
   fetchData: (username) ->
-    Wort.http.get('https://api.github.com/users/' + username)
-      .onValue (v) =>
-        this.setState name: v.body.name, avatar: v.body.avatar_url, username: v.body.login
+    Wort.http.get 'https://api.github.com/users/' + username, (err, v) =>
+      this.setState name: v.body.name, avatar: v.body.avatar_url, username: v.body.login
 
   componentWillMount: -> this.fetchData(this.props.username)
   componentWillReceiveProps: (newProps) ->
