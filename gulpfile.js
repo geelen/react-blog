@@ -4,13 +4,13 @@ var gulp = require('gulp'),
   $ = require('gulp-load-plugins')();
 
 gulp.task('js', function () {
-  gulp.src('src/main.coffee', { read: false })
+  gulp.src('src/browser.coffee', { read: false })
     .pipe($.plumber())
     .pipe($.browserify({
       transform: ['coffeeify'],
       extensions: ['.coffee']
     }))
-    .pipe($.rename('main.js'))
+    .pipe($.rename('browser.js'))
     .pipe(gulp.dest('dist'));
 });
 

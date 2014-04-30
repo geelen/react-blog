@@ -6,24 +6,25 @@ httpplease = require('httpplease').use(require('httpplease/lib/plugins/jsonparse
 R = React.DOM
 
 module.exports = React.createClass
-  fromGithubResponse: (body) ->
-    name: body.name, avatar: body.avatar_url, username: body.login
-
   getInitialState: ->
     name: ''
     avatar: ''
     username: 'Loading...'
 
-  handleClick: ->
-    this.setState username: this.state.username.toUpperCase()
-
-  componentWillMount: ->
-    Bacon.fromNodeCallback(httpplease.get, 'https://api.github.com/users/' + this.props.username)
+  fetchData: (username) ->
+    Bacon.fromNodeCallback(httpplease.get, 'https://api.github.com/users/' + username)
     .onValue (v) =>
-      this.setState this.fromGithubResponse(v.body)
+      console.log("OK GOT DATA")
+      this.setState name: v.body.name, avatar: v.body.avatar_url, username: v.body.login
+
+  componentWillMount: -> this.fetchData(this.props.username)
+  componentWillReceiveProps: (newProps) ->
+    if newProps.username != this.props.username
+      this.setState this.getInitialState()
+      this.fetchData(newProps.username)
 
   render: ->
-    R.div className: 'whut', onClick: this.handleClick
+    R.div className: 'user-info',
       R.h1 style: { color: 'blue' },
           this.state.name
       R.h4 null,
