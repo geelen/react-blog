@@ -7,22 +7,27 @@ httpplease = require('httpplease')
 R = React.DOM
 
 UserInfo = React.createClass
+  statics:
+    fromGithubResponse: (body) -> name: body.name, avatar: body.avatar_url
+
   getInitialState: ->
     name: ''
-    username: 'Loading...'
     avatar: ''
 
+  handleClick: ->
+    this.setState username: this.state.username.toUpperCase()
+
   componentWillMount: ->
-    Bacon.fromNodeCallback(httpplease.get, 'https://api.github.com/users/geelen')
+    Bacon.fromNodeCallback(httpplease.get, 'https://api.github.com/users/' + this.props.username)
       .onValue (v) =>
-        @setState name: v.body.name, username: v.body.login, avatar: v.body.avatar_url
+        this.setState UserInfo.fromGithubResponse(v.body)
 
   render: ->
     R.div className: 'whut',
-      R.h1 null,
-        @state.name
+      R.h1 { style: { color: 'blue' }, onClick: this.handleClick },
+        this.state.name
       R.h4 null,
-        @state.username
-      R.img src: @state.avatar
+        this.props.username
+      R.img src: this.state.avatar
 
-React.renderComponent(UserInfo(), document.body)
+React.renderComponent(UserInfo(username: 'charliesome'), document.body)
