@@ -4,8 +4,8 @@ require('coffee-script/register')
 path = require('path')
 connect = require('connect')
 
-React = require('react')
 routes = require('./routes')
+global.Wort = require('./wort')
 
 path = '/' #todo: this, obviously
-console.log React.renderComponentToString routes[path]()
+console.log Wort.renderReactComponentToString routes[path]()
