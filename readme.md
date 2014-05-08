@@ -2,5 +2,5 @@
 
 ```
 npm install
-gulp watch
+npm start
 ```
