@@ -25,19 +25,22 @@ Talks = [
   title: 'A GIF Odyssey'
   strap: 'Mountain West JS, 2014'
   url: 'https://www.youtube.com/watch?v=evzlNvboGTs'
+  image: '/assets/images/talks/a_gif_odyssey.jpg'
 ,
   title: 'The Z Dimension'
   strap: 'Web Directions South, 2013'
   url: 'https://www.youtube.com/watch?v=xFtgUguXHMw'
+  image: '/assets/images/talks/the_z_dimension.jpg'
 ,
   title: "JavaScript's Slightly Stricter Mode"
   strap: 'Web Directions Code, 2013'
   url: 'https://www.youtube.com/watch?v=gq95_h-IrHo'
+  image: '/assets/images/talks/strict_mode.jpg'
 ]
 
 
 module.exports = React.createClass
   render: ->
-    R.main {},
+    R.main style: {paddingTop: '1rem'},
       PreviewList(items: Projects, more: '/projects', title: 'Projects')
       PreviewList(items: Talks, more: '/talks', title: 'Talks')

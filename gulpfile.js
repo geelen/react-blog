@@ -11,6 +11,7 @@ gulp.task('js', function () {
       extensions: ['.coffee']
     }))
     .pipe($.rename('browser.js'))
+//    .pipe($.uglify())
     .pipe(gulp.dest('dist'));
 });
 

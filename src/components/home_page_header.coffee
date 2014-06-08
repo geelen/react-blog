@@ -39,8 +39,8 @@ module.exports = React.createClass
   render: ->
     R.header className: 'home-page__header', 'data-flex': 'align-center justify-center wrap',
       R.style dangerouslySetInnerHTML: {__html: this.style}
-      R.figure 'data-flex-shrink': 0, 'data-background': 'cover', style: {backgroundImage: "url('/assets/images/me_720.jpg')"}
-      R.h1 'data-flex-grow': 1, 'data-chevron': 'down',
+      R.figure 'data-flex-child': 'shrink0', 'data-background': 'cover', style: {backgroundImage: "url('/assets/images/me_720.jpg')"}
+      R.h1 'data-flex-child': 'grow1', 'data-chevron': 'down',
         R.small {}, "My name is"
         R.strong {}, "Glen Maddern"
         R.small {}, "and I do "

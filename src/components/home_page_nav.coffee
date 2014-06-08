@@ -19,7 +19,7 @@ module.exports = React.createClass
   render: ->
     R.nav className: 'home-page__nav', 'data-flex': 'align-center',
       R.style dangerouslySetInnerHTML: {__html: this.style}
-      R.h1 'data-flex-grow': 1,
+      R.h1 'data-flex-child': 'grow1',
         'Glen Maddern'
       R.ul 'data-flex': 'align-center',
         R.li {}, "About"
