@@ -25,20 +25,21 @@ module.exports = React.createClass
     .home-page__header > h1 > span {
       font-weight: 600;
     }
-    .home-page__header > img {
+    .home-page__header > figure {
       margin: 1rem;
-      max-width: 40vw;
-      height: auto;
+      width: 40vw;
+      height: 40vw;
       border-radius: 1rem;
     }
-    .breakpoint-small .home-page__header > img {
-      max-width: 66vw;
+    .breakpoint-small .home-page__header > figure {
+      width: 66vw;
+      height: 66vw;
     }
   """
   render: ->
     R.header className: 'home-page__header', 'data-flex': 'align-center justify-center wrap',
       R.style dangerouslySetInnerHTML: {__html: this.style}
-      R.img 'data-flex-shrink': 0, src: '/assets/images/me_720.jpg'
+      R.figure 'data-flex-shrink': 0, 'data-background': 'cover', style: {backgroundImage: "url('/assets/images/me_720.jpg')"}
       R.h1 'data-flex-shrink': 0, 'data-flex-grow': 1, 'data-chevron': 'down',
         R.small {}, "My name is"
         R.strong {}, "Glen Maddern"
