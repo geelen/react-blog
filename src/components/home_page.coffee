@@ -3,10 +3,7 @@
 React = require('react')
 R = React.DOM
 HomePageNav = require('./home_page_nav')
-
-HomePageHeader = React.createClass
-  render: ->
-    R.header()
+HomePageHeader = require('./home_page_header')
 
 HomePageBody = React.createClass
   render: ->
@@ -23,3 +20,4 @@ module.exports = React.createClass
       HomePageHeader(),
       HomePageBody(),
       HomePageFooter()
+

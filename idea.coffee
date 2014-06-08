@@ -36,3 +36,12 @@ console.log(ToCSS(StyleObj))
 #  children: [
 #    HomePageNav()
 #  ]
+#
+#G.register HomePage:
+#  tag: 'div'
+#  traits: []
+#  children:
+#    HomePageNav: {}
+#    HomePageHeader: {}
+#    HomePageBody: {}
+#    HomePageFooter: {}

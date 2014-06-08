@@ -15,16 +15,37 @@
     :root {
       color: black;
       font: 400 20px 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans';
+      min-height: 100%;
+    }
+    @media screen and (max-width: 768px) {
+      :root {
+        font-size: 14px;
+      }
     }
     body {
-      background-color: hsl(120,50%,98%);
+      background: linear-gradient(-30deg, hsl(0,50%,96%) 10%, hsl(90,50%,98%) 50%, hsl(180,50%,98%) 90%);
+      min-height: 100%;
     }
-    .flex, .flex--midrow {
+    [data-flex] {
+      display: -webkit-flex;
       display: flex;
     }
-    .flex--midrow {
+    [data-flex~="midrow"] {
       flex-direction: row;
       align-items: center;
+    }
+    [data-flex~="vertical-center"] {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    [data-flex-shrink~="0"] {
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+    [data-flex-grow~="1"] {
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
     }
   </style>
 </head>

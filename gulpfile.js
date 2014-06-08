@@ -28,11 +28,12 @@ gulp.task('clean', function () {
   return gulp.src(['dist/*'], {read: false}).pipe($.clean());
 });
 
-gulp.task('build', ['js', 'html']);
+gulp.task('build', ['js', 'html', 'assets']);
 
 gulp.task('default', ['build', 'connect'], function () {
   gulp.watch(['src/**/*.coffee'], ['js']);
   gulp.watch(['src/**/*.html'], ['html']);
+  gulp.watch(['src/assets/**'], ['assets']);
 
   gulp.watch(['dist/**.*'], function (event) {
     return gulp.src(event.path)
