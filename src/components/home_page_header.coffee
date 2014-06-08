@@ -16,7 +16,7 @@ module.exports = React.createClass
     .home-page__header > h1 > strong {
       font-size: 3em;
       display: block;
-      font-weight: 300;
+      font-weight: 100;
       margin: 1rem 0;
     }
     .home-page__header > h1 > small {
@@ -28,7 +28,7 @@ module.exports = React.createClass
     .home-page__header > figure {
       margin: 1rem;
       width: 40vw;
-      height: 40vw;
+      height: 50vw;
       border-radius: 1rem;
     }
     .breakpoint-small .home-page__header > figure {
@@ -40,7 +40,7 @@ module.exports = React.createClass
     R.header className: 'home-page__header', 'data-flex': 'align-center justify-center wrap',
       R.style dangerouslySetInnerHTML: {__html: this.style}
       R.figure 'data-flex-shrink': 0, 'data-background': 'cover', style: {backgroundImage: "url('/assets/images/me_720.jpg')"}
-      R.h1 'data-flex-shrink': 0, 'data-flex-grow': 1, 'data-chevron': 'down',
+      R.h1 'data-flex-grow': 1, 'data-chevron': 'down',
         R.small {}, "My name is"
         R.strong {}, "Glen Maddern"
         R.small {}, "and I do "

@@ -4,10 +4,7 @@ React = require('react')
 R = React.DOM
 HomePageNav = require('./home_page_nav')
 HomePageHeader = require('./home_page_header')
-
-HomePageBody = React.createClass
-  render: ->
-    R.main()
+HomePageBody = require('./home_page_body')
 
 HomePageFooter = React.createClass
   render: ->
