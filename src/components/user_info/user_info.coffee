@@ -21,11 +21,9 @@ module.exports = React.createClass
       this.fetchData(newProps.username)
 
   render: ->
-    console.log("RENDER CALLED")
-    console.log(this.state)
+    usernameOrLoading = if this.state.loading then 'Loading...' else this.state.username
     R.div className: 'user-info',
       R.h1 style: { color: 'blue' },
           this.state.name
-      R.h4 null,
-          if this.state.loading then 'Loading...' else this.state.username
+      R.h4 null, usernameOrLoading
       R.img src: this.state.avatar

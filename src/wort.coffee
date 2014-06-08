@@ -1,7 +1,6 @@
 "use strict"
 
 React = require('react')
-Bacon = require('baconjs')
 httpplease = require('httpplease').use(require('httpplease/lib/plugins/jsonparser'))
 
 class ClientWort
