@@ -1,9 +1,9 @@
 "use strict";
 
 React = require('react')
-routes = require('./routes')
+Router = require('./router')
 window.Wort = require('./wort')
 
-path = '/' #todo: this, obviously
-React.renderComponent routes(),
+path = location.pathname
+React.renderComponent Router(startingRoute: path),
                       document.getElementById('react-root')
