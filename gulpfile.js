@@ -19,6 +19,11 @@ gulp.task('html', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('assets', function () {
+  gulp.src('src/assets/**')
+    .pipe(gulp.dest('dist/assets'));
+});
+
 gulp.task('clean', function () {
   return gulp.src(['dist/*'], {read: false}).pipe($.clean());
 });

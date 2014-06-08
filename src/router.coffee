@@ -3,10 +3,10 @@
 React = require('react')
 R = React.DOM
 UserBrowser = require('./components/user_browser/user_browser')
+HomePage = require('./components/home_page')
 
 routes =
-  '/': UserBrowser(defaultUser: 'geelen')
-  '/users/benschwarz': UserBrowser(defaultUser: 'benschwarz')
+  '/': HomePage()
 
 module.exports = React.createClass
   getInitialState: ->
